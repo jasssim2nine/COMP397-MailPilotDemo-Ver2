@@ -7,8 +7,8 @@ module objects{
 
 
         // Constructor
-        constructor(assetManager: createjs.LoadQueue){
-            super(assetManager,"plane");
+        constructor(){
+            super("plane");
             this.Start();
             
             }
@@ -37,10 +37,10 @@ module objects{
                 //this.x = objects.Game.stage.mouseX;
 
                 //keyboard control
-                if(objects.Game.keyBoardManager.moveLeft){
+                if(managers.Game.keyBoardManager.moveLeft){
                     this.x -= 5;
                 }
-                if(objects.Game.keyBoardManager.moveRight){
+                if(managers.Game.keyBoardManager.moveRight){
                     this.x += 5;
                 }
                 

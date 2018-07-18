@@ -10,8 +10,8 @@ module scenes {
 
 
         //Constructor
-        constructor(assetManager: createjs.LoadQueue) {
-            super(assetManager)
+        constructor() {
+            super()
             this.Start();
         }
 
@@ -21,16 +21,16 @@ module scenes {
 
         private _resetButtonClick(): void {
 
-            objects.Game.currentScene = config.Scene.START;
+            managers.Game.currentScene = config.Scene.START;
         }
 
         //Public Methods
 
         //Initialize game variables and objects
         public Start(): void {
-            this._ocean = new objects.Ocean(this.assetManager);
+            this._ocean = new objects.Ocean();
             this._overLabel = new objects.Label("Game Over", "60px", "consolas", "#FFFF00", 320, 140, true);
-            this._resetButton = new objects.Button(this.assetManager, "resetButton", 320, 400);
+            this._resetButton = new objects.Button( "resetButton", 320, 400);
             this._scoreboard = new managers.ScoreBoard();
 
             this.Main();
@@ -50,7 +50,7 @@ module scenes {
             this.addChild(this._resetButton);//add back button
             
             this.addChild(this._scoreboard.HighScoreLabel);
-            this._scoreboard.HighScore = objects.Game.scoreBoard.Score;
+            this._scoreboard.HighScore = managers.Game.scoreBoard.Score;
 
             //click events for next button and back button 
             this._resetButton.on("click",this._resetButtonClick);

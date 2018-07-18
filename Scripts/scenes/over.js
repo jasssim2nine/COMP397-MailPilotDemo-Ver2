@@ -14,21 +14,21 @@ var scenes;
         __extends(OverScene, _super);
         // Public Properties
         //Constructor
-        function OverScene(assetManager) {
-            var _this = _super.call(this, assetManager) || this;
+        function OverScene() {
+            var _this = _super.call(this) || this;
             _this.Start();
             return _this;
         }
         //Private Methods
         OverScene.prototype._resetButtonClick = function () {
-            objects.Game.currentScene = config.Scene.START;
+            managers.Game.currentScene = config.Scene.START;
         };
         //Public Methods
         //Initialize game variables and objects
         OverScene.prototype.Start = function () {
-            this._ocean = new objects.Ocean(this.assetManager);
+            this._ocean = new objects.Ocean();
             this._overLabel = new objects.Label("Game Over", "60px", "consolas", "#FFFF00", 320, 140, true);
-            this._resetButton = new objects.Button(this.assetManager, "resetButton", 320, 400);
+            this._resetButton = new objects.Button("resetButton", 320, 400);
             this._scoreboard = new managers.ScoreBoard();
             this.Main();
         };
@@ -42,7 +42,7 @@ var scenes;
             //this.addChild(this._highScoreLabel);
             this.addChild(this._resetButton); //add back button
             this.addChild(this._scoreboard.HighScoreLabel);
-            this._scoreboard.HighScore = objects.Game.scoreBoard.Score;
+            this._scoreboard.HighScore = managers.Game.scoreBoard.Score;
             //click events for next button and back button 
             this._resetButton.on("click", this._resetButtonClick);
         };

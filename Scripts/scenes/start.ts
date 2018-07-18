@@ -9,8 +9,8 @@ module scenes {
 
 
         //Constructor
-        constructor(assetManager: createjs.LoadQueue) {
-            super(assetManager)
+        constructor() {
+            super()
             this.Start();
         }
 
@@ -18,17 +18,17 @@ module scenes {
         //Private Methods
         private _startButtonClick(): void {
 
-            objects.Game.currentScene = config.Scene.PLAY;
+            managers.Game.currentScene = config.Scene.PLAY;
         }
 
         //Public Methods
 
         //Initialize game variables and objects
         public Start(): void {
-                this._ocean = new objects.Ocean(this.assetManager);
+                this._ocean = new objects.Ocean();
 
             this._welcomeLabel = new objects.Label("Mail Pilot", "60px", "consolas", "#FFFF00", 325, 160, true);
-            this._startButton = new objects.Button(this.assetManager, "startButton", 320, 340);
+            this._startButton = new objects.Button( "startButton", 320, 340);
             this.Main();
 
         }

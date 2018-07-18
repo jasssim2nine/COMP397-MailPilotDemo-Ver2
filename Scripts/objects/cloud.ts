@@ -7,8 +7,8 @@ module objects{
 
 
         // Constructor
-        constructor(assetManager: createjs.LoadQueue){
-            super(assetManager,"cloud");
+        constructor(){
+            super("cloud");
             this.Start();
             
             }

@@ -14,8 +14,8 @@ module scenes {
 
 
         //Constructor
-        constructor(assetManager: createjs.LoadQueue) {
-            super(assetManager)
+        constructor() {
+            super()
             this.Start();
         }
 
@@ -27,9 +27,9 @@ module scenes {
 
         //Initialize game variables and objects
         public Start(): void {
-               this._ocean = new objects.Ocean(this.assetManager);
-               this._plane = new objects.Plane(this.assetManager);
-               this._island = new objects.Island(this.assetManager);
+               this._ocean = new objects.Ocean();
+               this._plane = new objects.Plane();
+               this._island = new objects.Island();
               //instantiate the cloud array
               this._clouds = new Array<objects.Cloud>();
                
@@ -37,7 +37,7 @@ module scenes {
               //loop and add each cloud to the array
               for(let count= 0; count < this._cloudNum; count++)
               {
-                  this._clouds[count] = new objects.Cloud(this.assetManager); 
+                  this._clouds[count] = new objects.Cloud(); 
               }
 
               //add engine sound
@@ -47,7 +47,7 @@ module scenes {
               this._engineSound.volume =0.3;
 
               this._scoreBoard = new managers.ScoreBoard();
-              objects.Game.scoreBoard = this._scoreBoard;
+              managers.Game.scoreBoard = this._scoreBoard;
 
 
             this.Main();
@@ -71,7 +71,7 @@ module scenes {
             if(this._scoreBoard.Lives <= 0)
             {
                 this._engineSound.stop();
-                objects.Game.currentScene = config.Scene.OVER;
+                managers.Game.currentScene = config.Scene.OVER;
             }
             }
         

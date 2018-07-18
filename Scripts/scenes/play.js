@@ -14,8 +14,8 @@ var scenes;
         __extends(PlayScene, _super);
         // Public Properties
         //Constructor
-        function PlayScene(assetManager) {
-            var _this = _super.call(this, assetManager) || this;
+        function PlayScene() {
+            var _this = _super.call(this) || this;
             _this.Start();
             return _this;
         }
@@ -23,22 +23,22 @@ var scenes;
         //Public Methods
         //Initialize game variables and objects
         PlayScene.prototype.Start = function () {
-            this._ocean = new objects.Ocean(this.assetManager);
-            this._plane = new objects.Plane(this.assetManager);
-            this._island = new objects.Island(this.assetManager);
+            this._ocean = new objects.Ocean();
+            this._plane = new objects.Plane();
+            this._island = new objects.Island();
             //instantiate the cloud array
             this._clouds = new Array();
             this._cloudNum = 3;
             //loop and add each cloud to the array
             for (var count = 0; count < this._cloudNum; count++) {
-                this._clouds[count] = new objects.Cloud(this.assetManager);
+                this._clouds[count] = new objects.Cloud();
             }
             //add engine sound
             this._engineSound = createjs.Sound.play("engine");
             this._engineSound.loop = -1; //play engine sound for ever
             this._engineSound.volume = 0.3;
             this._scoreBoard = new managers.ScoreBoard();
-            objects.Game.scoreBoard = this._scoreBoard;
+            managers.Game.scoreBoard = this._scoreBoard;
             this.Main();
         };
         //check every frame
@@ -57,7 +57,7 @@ var scenes;
             //if lives fall below 0 then swith the scene.
             if (this._scoreBoard.Lives <= 0) {
                 this._engineSound.stop();
-                objects.Game.currentScene = config.Scene.OVER;
+                managers.Game.currentScene = config.Scene.OVER;
             }
         };
         PlayScene.prototype.Main = function () {

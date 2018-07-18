@@ -14,8 +14,8 @@ var objects;
         __extends(Cloud, _super);
         //Private Instance Variables
         // Constructor
-        function Cloud(assetManager) {
-            var _this = _super.call(this, assetManager, "cloud") || this;
+        function Cloud() {
+            var _this = _super.call(this, "cloud") || this;
             _this.Start();
             return _this;
         }

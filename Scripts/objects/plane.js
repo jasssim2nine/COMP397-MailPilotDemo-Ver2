@@ -14,8 +14,8 @@ var objects;
         __extends(Plane, _super);
         //Private Instance Variables
         // Constructor
-        function Plane(assetManager) {
-            var _this = _super.call(this, assetManager, "plane") || this;
+        function Plane() {
+            var _this = _super.call(this, "plane") || this;
             _this.Start();
             return _this;
         }
@@ -35,10 +35,10 @@ var objects;
         Plane.prototype.Move = function () {
             //this.x = objects.Game.stage.mouseX;
             //keyboard control
-            if (objects.Game.keyBoardManager.moveLeft) {
+            if (managers.Game.keyBoardManager.moveLeft) {
                 this.x -= 5;
             }
-            if (objects.Game.keyBoardManager.moveRight) {
+            if (managers.Game.keyBoardManager.moveRight) {
                 this.x += 5;
             }
         };

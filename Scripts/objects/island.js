@@ -14,8 +14,8 @@ var objects;
         __extends(Island, _super);
         //Private Instance Variables
         // Constructor
-        function Island(assetManager) {
-            var _this = _super.call(this, assetManager, "island") || this;
+        function Island() {
+            var _this = _super.call(this, "island") || this;
             _this.Start();
             return _this;
         }

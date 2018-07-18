@@ -14,21 +14,21 @@ var scenes;
         __extends(StartScene, _super);
         // Public Properties
         //Constructor
-        function StartScene(assetManager) {
-            var _this = _super.call(this, assetManager) || this;
+        function StartScene() {
+            var _this = _super.call(this) || this;
             _this.Start();
             return _this;
         }
         //Private Methods
         StartScene.prototype._startButtonClick = function () {
-            objects.Game.currentScene = config.Scene.PLAY;
+            managers.Game.currentScene = config.Scene.PLAY;
         };
         //Public Methods
         //Initialize game variables and objects
         StartScene.prototype.Start = function () {
-            this._ocean = new objects.Ocean(this.assetManager);
+            this._ocean = new objects.Ocean();
             this._welcomeLabel = new objects.Label("Mail Pilot", "60px", "consolas", "#FFFF00", 325, 160, true);
-            this._startButton = new objects.Button(this.assetManager, "startButton", 320, 340);
+            this._startButton = new objects.Button("startButton", 320, 340);
             this.Main();
         };
         StartScene.prototype.Update = function () {

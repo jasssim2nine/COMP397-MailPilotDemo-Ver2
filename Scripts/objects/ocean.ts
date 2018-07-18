@@ -7,8 +7,8 @@ module objects{
 
 
         // Constructor
-        constructor(assetManager: createjs.LoadQueue){
-            super(assetManager.getResult("ocean"));
+        constructor(){
+            super(managers.Game.assetManager.getResult("ocean"));
             this.Start();
             
             }

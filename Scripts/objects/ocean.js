@@ -13,8 +13,8 @@ var objects;
     var Ocean = /** @class */ (function (_super) {
         __extends(Ocean, _super);
         // Constructor
-        function Ocean(assetManager) {
-            var _this = _super.call(this, assetManager.getResult("ocean")) || this;
+        function Ocean() {
+            var _this = _super.call(this, managers.Game.assetManager.getResult("ocean")) || this;
             _this.Start();
             return _this;
         }
