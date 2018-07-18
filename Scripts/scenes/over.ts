@@ -29,7 +29,7 @@ module scenes {
         //Initialize game variables and objects
         public Start(): void {
             this._ocean = new objects.Ocean();
-            this._overLabel = new objects.Label("Game Over", "60px", "consolas", "#FFFF00", 320, 140, true);
+            this._overLabel = new objects.Label("Game Over", "60px", "Docks", "#FFFF00", 320, 140, true);
             this._resetButton = new objects.Button( "resetButton", 320, 400);
             this._scoreboard = new managers.ScoreBoard();
 
