@@ -22,7 +22,8 @@
    textureAtlasData = {
 
     "images": [
-        "./Assets/sprites/textureAtlas.png"
+        ""
+       // "./Assets/sprites/textureAtlas.png"
     ],
     
     
@@ -52,6 +53,7 @@
    
     
     assetManifest = [
+        {id: "textureAtlas", src:"./Assets/sprites/textureAtlas.png"},
         {id: "ocean", src:"./Assets/images/ocean.gif"},
       
         {id:"engine", src:"./Assets/audio/engine.ogg"},
@@ -62,7 +64,7 @@
         //preloads assets
     function Init():void{
         console.log("Initialization Started");
-        textureAtlas = new createjs.SpriteSheet(textureAtlasData);
+        
         assetManager = new createjs.LoadQueue();//creates the asset manager object
         assetManager.installPlugin(createjs.Sound);//asset manager can also load sounds
         assetManager.loadManifest(assetManifest);
@@ -72,6 +74,8 @@
 
     function Start():void{
         console.log("Starting Application....");
+        textureAtlasData.images = [assetManager.getResult("textureAtlas")];
+        textureAtlas = new createjs.SpriteSheet(textureAtlasData);
 
         stage = new createjs.Stage(canvas);
         stage.enableMouseOver(20); // turn this on for buttons
