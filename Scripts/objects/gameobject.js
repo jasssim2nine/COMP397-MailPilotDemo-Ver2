@@ -14,7 +14,7 @@ var objects;
         __extends(GameObject, _super);
         // Constructor
         function GameObject(imageString) {
-            var _this = _super.call(this, managers.Game.assetManager.getResult(imageString)) || this;
+            var _this = _super.call(this, managers.Game.textureAtlas, imageString) || this;
             _this.name = imageString;
             _this._initialize();
             return _this;
@@ -41,7 +41,7 @@ var objects;
         GameObject.prototype.Move = function () {
         };
         return GameObject;
-    }(createjs.Bitmap));
+    }(createjs.Sprite));
     objects.GameObject = GameObject;
 })(objects || (objects = {}));
 //# sourceMappingURL=gameobject.js.map

@@ -16,17 +16,44 @@
     let currentScene : objects.Scene;
    let currentState : number;
    let keyBoardManager : managers.Keyboard;
+   let textureAtlasData : any;
+   let textureAtlas : createjs.SpriteSheet;
+    
+   textureAtlasData = {
 
+    "images": [
+        "./Assets/sprites/textureAtlas.png"
+    ],
+    
+    
+    "frames": [
+        [1, 1, 226, 178, 0, 0, 0],
+        [1, 181, 62, 62, 0, 0, 0],
+        [65, 181, 62, 51,0, 0, 0],
+        [129, 181, 62, 51, 0, 0, 0],
+        [193, 181, 62, 51, 0, 0, 0],
+        [1, 245, 200, 60, 0, 0, 0],
+        [1, 307, 200, 60, 0, 0, 0]
+    ],
+    
+    "animations": {
+        "cloud": { "frames": [0] },
+        "island": { "frames": [1] },
+       "plane": { "frames": [2, 3, 4],
+            "speed" : 0.5 }, 
+
+        "resetButton": { "frames": [5] },
+        "startButton": { "frames": [6] }
+    }
+    
+    
+    };
+
+   
+    
     assetManifest = [
-        {id: "clickMeButton", src:"./Assets/images/click_here_button.png"},
-        {id: "startButton", src:"./Assets/images/startButton.png"},
-        {id: "nextButton", src:"./Assets/images/nextButton.png"},
-        {id: "backButton", src:"./Assets/images/backButton.png"},
-        {id: "resetButton", src:"./Assets/images/resetButton.png"},
         {id: "ocean", src:"./Assets/images/ocean.gif"},
-        {id: "plane", src:"./Assets/images/plane.png"},
-        {id: "island", src:"./Assets/images/island.png"},
-        {id: "cloud", src:"./Assets/images/cloud.png"},
+      
         {id:"engine", src:"./Assets/audio/engine.ogg"},
         {id:"thunder", src:"./Assets/audio/thunder.ogg"},
         {id:"yay", src:"./Assets/audio/yay.ogg"},
@@ -35,6 +62,7 @@
         //preloads assets
     function Init():void{
         console.log("Initialization Started");
+        textureAtlas = new createjs.SpriteSheet(textureAtlasData);
         assetManager = new createjs.LoadQueue();//creates the asset manager object
         assetManager.installPlugin(createjs.Sound);//asset manager can also load sounds
         assetManager.loadManifest(assetManifest);
@@ -57,6 +85,7 @@
         keyBoardManager = new managers.Keyboard();
         managers.Game.keyBoardManager = keyBoardManager;
         managers.Game.assetManager = assetManager;
+        managers.Game.textureAtlas = textureAtlas;
 
         Main();
         

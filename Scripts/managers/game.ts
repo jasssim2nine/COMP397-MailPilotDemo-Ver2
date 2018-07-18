@@ -6,5 +6,6 @@ module managers{
         public static scoreBoard : managers.ScoreBoard;
         public static keyBoardManager : managers.Keyboard;
         public static HighScore : number = 0;
+        public static textureAtlas : createjs.SpriteSheet;
     }
 }

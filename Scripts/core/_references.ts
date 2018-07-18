@@ -1,6 +1,6 @@
 /// <reference path = "../../Scripts/managers/game.ts"/>
 /// <reference path = "../../Scripts/objects/label.ts"/>
-/// <reference path = "../../Scripts/objects/button.ts"/>
+
 /// <reference path = "../../Scripts/config/keys.ts"/>
 /// <reference path = "../../Scripts/config/scene.ts"/>
 /// <reference path = "../../Scripts/objects/scene.ts"/>
@@ -15,6 +15,7 @@
 ///<reference path = "../../Scripts/managers/scoreboard.ts"/>
 ///<reference path = "../../Scripts/managers/collision.ts"/>
 
+/// <reference path = "../../Scripts/objects/button.ts"/>
 /// <reference path = "../../Scripts/objects/ocean.ts"/>
 /// <reference path = "../../Scripts/objects/plane.ts"/>
 /// <reference path = "../../Scripts/objects/island.ts"/>
