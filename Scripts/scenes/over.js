@@ -27,7 +27,7 @@ var scenes;
         //Initialize game variables and objects
         OverScene.prototype.Start = function () {
             this._ocean = new objects.Ocean();
-            this._overLabel = new objects.Label("Game Over", "60px", "Dock51", "#FFFF00", 320, 140, true);
+            this._overLabel = new objects.Label("Game Over", "60px", "dock51", "#FFFF00", 320, 140, true);
             this._resetButton = new objects.Button("resetButton", 320, 400);
             this._scoreboard = new managers.ScoreBoard();
             this.Main();
